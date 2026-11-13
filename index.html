@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Inline EBR Width Inspection — Every Wafer, 0 s Added</title>
-  <meta name="description" content="Inline wafer Edge Bevel Removal (EBR) width inspection during WTR transfer with zero throughput loss." />
-  <meta property="og:title" content="Inline EBR Width Inspection — Every Wafer, 0 s Added" />
+  <title>Inline Post-CMP Inspection — Every Wafer, 0 s Added</title>
+  <meta name="description" content="Inline post-CMP full-wafer inspection during WTR robot transfer with zero throughput loss." />
+  <meta property="og:title" content="Inline Post-CMP Inspection — Every Wafer, 0 s Added" />
   <meta property="og:description" content="Full-wafer film-color variation & sub-pixel scratch inspection during robot transfer. Point metrology for the numbers, full-wafer imaging for everything between." />
+  <meta property="og:url" content="https://drccy7.github.io/cmp-shorts/" />
   <meta property="og:type" content="video.other" />
   <meta property="og:video" content="CMP_shorts_X_v3.mp4" />
   <meta property="og:video:type" content="video/mp4" />
@@ -327,8 +328,8 @@
         </div>
         <div class="speed-group" id="speedGroup">
           <button class="speed-btn" data-speed="0.5">0.5x</button>
-          <button class="speed-btn" data-speed="0.75">0.75x</button>
-          <button class="speed-btn active" data-speed="1">1.0x</button>
+          <button class="speed-btn active" data-speed="0.75">0.75x</button>
+          <button class="speed-btn" data-speed="1">1.0x</button>
           <button class="speed-btn" data-speed="1.25">1.25x</button>
           <button class="speed-btn" data-speed="1.5">1.5x</button>
         </div>
@@ -338,6 +339,13 @@
 
   <script>
     const video = document.getElementById('player');
+    const DEFAULT_SPEED = 0.75;
+    video.defaultPlaybackRate = DEFAULT_SPEED;
+    video.playbackRate = DEFAULT_SPEED;
+    video.addEventListener('loadedmetadata', () => {
+      video.defaultPlaybackRate = DEFAULT_SPEED;
+      video.playbackRate = DEFAULT_SPEED;
+    }, { once: true });
     const playPauseBtn = document.getElementById('playPauseBtn');
     const restartBtn = document.getElementById('restartBtn');
     const fullscreenBtn = document.getElementById('fullscreenBtn');
